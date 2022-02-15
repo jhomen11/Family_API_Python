@@ -33,7 +33,7 @@ class FamilyStructure:
                 "id": self._generateId(),
                 "last_name": self.last_name,
                 "age": 5,
-                "lucky_numbers": [1]
+                "lucky_numbers": [1, 2]
             }
         ]
 
@@ -43,14 +43,26 @@ class FamilyStructure:
 
     def add_member(self, member):
         # fill this method and update the return
-        pass
+        if member["age"] >= 0 and member["name"] != None and member["lucky_numbers"] != None:
+            member["last_name"] = self.last_name
+            member["id"] = self._generateId()
+            self._members.append(member)
+            return str(member["name"]) + " fue agregado a la lista"
+        else:
+            return "Falta información"
+        ##pass
 
-    def delete_member(self, id):
-        # fill this method and update the return
-        pass
+    def delete_member(self, member_id):
+        for x in range (len(self._members)):
+            if self._members[x]["id"] == member_id:
+                self._members.pop(x)
+                return "Borré al miembro con id " + str(member_id)
+        ##pass
 
-    def get_member(self, id):
-        # fill this method and update the return
+    def get_member(self, member_id):
+        for x in range (len(self._members)):
+            if self._members[x]["id"] == member_id:
+                return self._members[x]
         pass
 
     # this method is done, it returns a list with all the family members
