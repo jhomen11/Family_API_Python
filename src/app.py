@@ -48,7 +48,6 @@ def add_member():
         addMember = jackson_family.add_member(member)
         return addMember, 200
 
-
     return jsonify(response_body), 200
 
 # this only runs if `$ python src/app.py` is executed
