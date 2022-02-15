@@ -57,13 +57,14 @@ def add_member():
         return 'Falta age'
    if ('name' not in member):
         return 'Falta name'
+   if ('lucky_numbers' not in member):
+       return 'Falta numero de suerte'
+   elif member["age"] and member["name"] and member["lucky_numbers"]:
+        newMember = jackson_family.add_member(member)
+        return newMember, 200
     
-   print(member)
     
-   return "Ok"
-
-
-   
+    
     
 
 # this only runs if `$ python src/app.py` is executed
