@@ -47,7 +47,7 @@ class FamilyStructure:
             member["last_name"] = self.last_name
             member["id"] = self._generateId()
             self._members.append(member)
-            return str(member["name"]) + " fue agregado a la lista"
+            return "Registro agregado con exito"
         else:
             return "Falta información"
         ##pass
@@ -56,7 +56,7 @@ class FamilyStructure:
         for x in range (len(self._members)):
             if self._members[x]["id"] == member_id:
                 self._members.pop(x)
-                return "Borré al miembro con id " + str(member_id)
+                return "Registro eliminado con exito"
         ##pass
 
     def get_member(self, member_id):
