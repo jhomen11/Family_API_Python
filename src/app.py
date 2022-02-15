@@ -35,6 +35,19 @@ def handle_hello():
         "family": members
     }
 
+@app.route('/members', methods=['POST'])
+def add_member():
+    member = request.get_json()
+    if "age" not in member:
+        return "Campo age es obligatorio", 400
+    elif "name" not in member:
+        return "Campo name es obligatorio", 400
+    elif "lucky_numbers" not in member:
+        return "Campo lucky_numbers es obligatorio", 400
+    elif member["age"] and member["name"] and member["lucky_numbers"]:
+        addMember = jackson_family.add_member(member)
+        return addMember, 200
+
 
     return jsonify(response_body), 200
 
